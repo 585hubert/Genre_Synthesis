@@ -1,0 +1,329 @@
+# check the large survey-library for ready-to-run examples you can
+# cut and paste here
+
+scale: agree
+- {score=1} 1 (Strong Disliking)
+- {score=1.5}   1.5  
+- {score=2}   2  
+- {score=2.5}   2.5  
+- {score=3} 3 (Neutral)  
+- {score=3.5}   3.5  
+- {score=4}   4 
+- {score=4.5}   4.5  
+- {score=5} 5 (Strong Liking)
+
+l: drinks
+t: range
+q: How many hours a week do you spend listening to the following types of content?
+- {min=0,max=10,start=5,left=0 hours,right=10 hours (or more)} News Reports/Journalist Reports?
+- {min=0,max=10,start=5,left=0 hours,right=10 hours (or more)} TEDTalks/similar variants thereof?
+- {min=0,max=10,start=5,left=0 hours,right=10 hours (or more)} Stand Up comedy shows?
+- {min=0,max=10,start=5,left=0 hours,right=10 hours (or more)} Documentaries (professional or amateur)?
+
+l: introtext
+t: info
+q: Part 1: Voice evaluation<br>
+In this part, you will see 8 questions. For each question, 4 samples will appear on top of the screen. <b>The top sample plays automatically</b>. You can hit the play button to hear the different audio extracts as many times as you want.<br>
+Below you can then rate the degree to which you like the voices. The top audio file corresponds to extract 1, the second one to extract 2, and so on.<Br>
+
+#comparing knn to fs2
+
+l: knnfs1
+q: A Documentary extract is read by 4 different voices. Click on each sample, and listen to them carefully. Indicate the extent to which you like how the voice reads the extract (from 1 to 5).
+t: scale agree
+a: Documentary_FemaleDocumentary_k_20_wav.mp3 Documentary_FemaleNews_k_20_wav.mp3 Documentary_MaleDocumentary_k_20_wav.mp3 Documentary__1__wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+- Extract 4
+
+l: knnfs2
+q: A Comedy Stand Up extract is read by 4 different voices. Click on each sample, and listen to them carefully. Indicate the extent to which you like how the voice reads the extract (from 1 to 5).
+t: scale agree
+a: Comedy_FemaleTEDTalk_k_20_wav.mp3 Comedy__1__wav.mp3 Comedy_MaleComedy_k_20_wav.mp3 Comedy_FemaleComedy_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+- Extract 4
+
+l: knnfs3
+q: A News Report extract will be read by 4 different voices. Click on each sample, and listen to them carefully. Indicate the extent to which you like how the voice reads the extract (from 1 to 5).
+t: scale agree
+a: News__1__wav.mp3 News_MaleComedy_k_20_wav.mp3 News_FemaleNews_k_20_wav.mp3 News_MaleNews_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+- Extract 4
+
+l: knnfs4
+q: A TEDTalk extract will be read by 4 different voices. Click on each sample, and listen to them carefully. Indicate the extent to which you like how the voice reads the extract (from 1 to 5).
+t: scale agree
+a: TEDTalk_MaleTEDTalk_k_20_wav.mp3 TEDTalk_FemaleTEDTalk_k_20_wav.mp3 TEDTalk__1__wav.mp3 TEDTalk_MaleNews_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+- Extract 4
+
+#comparing knn between themselves
+
+l: knn1
+q: A News Report extract will be read by 4 different voices. Click on each sample, and listen to them carefully. Indicate the extent to which you like how the voice reads the extract (from 1 to 5).
+t: scale agree
+a: News_MaleDocumentary_k_20_wav.mp3 News_FemaleNews_k_20_wav.mp3 News_MaleDocumentary_k_20_wav.mp3 News_MaleNews_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+- Extract 4
+
+l: knn2
+q: A Documentary extract will be read by 4 different voices. Click on each sample, and listen to them carefully. Indicate the extent to which you like how the voice reads the extract (from 1 to 5).
+t: scale agree
+a: Documentary_FemaleNews_k_20_wav.mp3 Documentary_FemaleDocumentary_k_20_wav.mp3 Documentary_MaleDocumentary_k_20_wav.mp3 Documentary_MaleTEDTalk_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+- Extract 4
+
+l: knn3
+q: A TEDTalk extract will be read by 4 different voices. Click on each sample, and listen to them carefully. Indicate the extent to which you like how the voice reads the extract (from 1 to 5).
+t: scale agree
+a: TEDTalk_FemaleNews_k_20_wav.mp3 TEDTalk_MaleTEDTalk_k_20_wav.mp3 TEDTalk_MaleDocumentary_k_20_wav.mp3 TEDTalk_FemaleTEDTalk_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+- Extract 4
+
+l: knn4
+q: A Comedy Stand Up extract will be read by 4 different voices. Listen to them carefully, and indicate the extent to which you like how the voice reads the extract (from 1 to 5).
+t: scale agree
+a: Comedy_FemaleComedy_k_20_wav.mp3 Comedy_MaleTEDTalk_k_20_wav.mp3 Comedy_MaleComedy_k_20_wav.mp3 Comedy_FemaleTEDTalk_k_20_wav.mp3 
+- Extract 1
+- Extract 2
+- Extract 3
+- Extract 4
+
+l: midtext
+t: info
+q: Part 2: Discernability<br>
+In this part, you will see 8 questions. For each question, 1 sample will appear on top of the screen. Below, 5 options will be available. Your task is to identify the style of speech being applied to the sample.
+
+l: Discern1
+t: radio
+q: Which speech style is being applied to the sample above?
+o: random
+a: HarvNo_1Fixed_wavMaleTEDTalk_k_20_wav.mp3
+- TEDTalk Presentation
+- Sports Commentary
+- Weather Forecasting
+- Political Rallying
+- Unrecognsiable/I don't know
+
+l: Discern2
+t: radio
+q: Which speech style is being applied to the sample above?
+o: random
+a: HarvNo_2Fixed_wavMaleDocumentary_k_20_wav.mp3
+- Poetic Reading
+- Documentary Narration
+- News Broadcasting
+- Public Speaking
+- Unrecognsiable/I don't know
+
+l: Discern3
+t: radio
+q: Which speech style is being applied to the sample above?
+o: random
+a: HarvNo_3Fixed_wavFemaleNews_k_20_wav.mp3
+- Stand Up Routine
+- News Broadcasting
+- Museum Exhibition
+- Instruction Guide
+- Unrecognsiable/I don't know
+
+l: Discern4
+t: radio
+q: Which speech style is being applied to the sample above?
+o: random
+a: HarvNo_4Fixed_wavFemaleTEDTalk_k_20_wav.mp3
+- News Broadcasting
+- Museum Exhibition
+- TEDTalk Presentation
+- Documentary Narration
+- Unrecognsiable/I don't know
+
+l: Discern5
+t: radio
+q: Which speech style is being applied to the sample above?
+a: HarvNo_5Fixed_wavMaleComedy_k_20_wav.mp3
+- Stand Up Routine
+- Public Speaking
+- News Broadcasting
+- Public Speaking
+- Unrecognsiable/I don't know
+
+l: Discern6
+t: radio
+q: Which speech style is being applied to the sample above?
+o: random
+a: HarvNo_6Fixed_wavFemaleComedy_k_20_wav.mp3
+- Stand Up Routine
+- Motivational Speaking
+- Political Rallying
+- Weather Forecasting
+- Unrecognsiable/I don't know
+
+l: Discern7
+t: radio
+q: Which speech style is being applied to the sample above?
+o: random
+a: HarvNo_7Fixed_wavFemaleDocumentary_k_20_wav.mp3
+- TEDTalk Presentation
+- Documentary Narration
+- Political Rallying
+- Museum Exhibition
+- Unrecognsiable/I don't know
+
+l: Discern8
+t: radio
+q: Which speech style is being applied to the sample above?
+o: random
+a: HarvNo_8Fixed_wavMaleNews_k_20_wav.mp3
+- News Broadcasting
+- Documentary Narration
+- Poetic Reading
+- Instruction Guide
+- Unrecognsiable/I don't know
+
+l: End1
+t: radio
+q: You have made it through the 2 main sections. Thank you very much for filling those in.<br>
+There are additional sections to this evaluation (which are much shorter; they're pilot experiments). If you wish to fill those in (3 more parts, 4 questions each), I would highly appreciate it. If not, that's also perfectly fine. You may also choose to continue and not finish all of the subsequent sections if desired.<br>
+Do you wish to continue the evaluation or end it here?
+- Continue
+- End
+
+j: if $End1 == 2 then end
+j: if $End1 == 1 then goto Part3
+
+l: Part3
+t: info
+q: Part 3: Quality Evaluation<br>
+In this section, there are 4 questions. Each question has the same audio clip, with the same voice, but with slightly different quality. Listen to each extract and rate how much you like each sample.
+
+l: kvar1
+q: A Documentary extract is read by a documentary narration synthesiser. Click on each sample, and listen to them carefully. Indicate the extent to which you like how the voice reads the extract (from 1 to 5).
+t: scale agree
+a: Documentary_MaleDocumentary_k_4_wav.mp3 Documentary_MaleDocumentary_k_20_wav.mp3 Documentary_MaleDocumentary_k_50_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+
+l: kvar2
+q: A Comedy extract is read by a stand up comic synthesiser. Click on each sample, and listen to them carefully. Indicate the extent to which you like how the voice reads the extract (from 1 to 5).
+t: scale agree
+a: Comedy_FemaleComedy_k_50_wav.mp3 Comedy_FemaleComedy_k_4_wav.mp3 Comedy_FemaleComedy_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+
+l: kvar3
+q: A TEDTalk extract is read by a TEDTalk Presentation synthesiser. Click on each sample, and listen to them carefully. Indicate the extent to which you like how the voice reads the extract (from 1 to 5).
+t: scale agree
+a: TEDTalk_MaleTEDTalk_k_20_wav.mp3 TEDTalk_MaleTEDTalk_k_4_wav.mp3 TEDTalk_MaleTEDTalk_k_50_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+
+l: kvar4
+q: A News extract is read by a News Broadcasting synthesiser. Click on each sample, and listen to them carefully. Indicate the extent to which you like how the voice reads the extract (from 1 to 5).
+t: scale agree
+a: News_FemaleNews_k_50_wav.mp3 News_FemaleNews_k_20_wav.mp3 News_FemaleNews_k_4_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+
+l: Part4
+t: info
+q: Part 4: Preferred Speaker<br>
+In this section, there are 4 questions. Each question has the same audio clip, with 3 different speakers. You choose which voice you like the best.
+
+l: gender1
+t: radio
+q: A News extract is read by 3 different voices. Pick your favourite from the following:
+a: News_FemaleNews_k_20_wav.mp3 News_MaleNews_k_20_wav.mp3 News__1__wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+
+l: gender2
+t: radio
+q: A Comedy extract is read by 3 different voices. Pick your favourite from the following:
+a: Comedy_MaleComedy_k_20_wav.mp3 Comedy__1__wav.mp3 Comedy_FemaleComedy_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+
+l: gender3
+t: radio
+q: A TEDTalk extract is read by 3 different voices. Pick your favourite from the following:
+a: TEDTalk__1__wav.mp3 TEDTalk_FemaleTEDTalk_k_20_wav.mp3 TEDTalk_MaleTEDTalk_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+
+l: gender4
+t: radio
+q: A Documentary extract is read by 3 different voices. Pick your favourite from the following:
+a: Documentary_MaleDocumentary_k_20_wav.mp3 Documentary__1__wav.mp3 Documentary_FemaleDocumentary_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+
+l: Part5
+t: info
+q: Part 5: Extract Analysis<br>
+In this section, there are 4 questions. Each question has the same speaker, but they speak 4 different extracts. Indicate the extent to which you like how the voice reads the extract (from 1 to 5).
+
+l: genre1
+t: scale agree
+q: An AI voice reads 4 different extracts. Indicate the extent to which you like how the voice reads the extracts (from 1 to 5):
+a: Documentary_MaleComedy_k_20_wav.mp3 News_MaleComedy_k_20_wav.mp3 Comedy_MaleComedy_k_20_wav.mp3 TEDTalk_MaleComedy_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+- Extract 4
+
+l: genre2
+t: scale agree
+q: An AI voice reads 4 different extracts. Indicate the extent to which you like how the voice reads the extracts (from 1 to 5):
+a: News_MaleNews_k_20_wav.mp3 TEDTalk_MaleNews_k_20_wav.mp3 Documentary_MaleNews_k_20_wav.mp3 Comedy_MaleNews_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+- Extract 4
+
+l: genre3
+t: scale agree
+q: An AI voice reads 4 different extracts. Indicate the extent to which you like how the voice reads the extracts (from 1 to 5):
+a: TEDTalk_FemaleTEDTalk_k_20_wav.mp3 News_FemaleTEDTalk_k_20_wav.mp3 Comedy_FemaleTEDTalk_k_20_wav.mp3 Documentary_FemaleTEDTalk_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+- Extract 4
+
+l: genre4
+t: scale agree
+q: An AI voice reads 4 different extracts. Indicate the extent to which you like how the voice reads the extracts (from 1 to 5):
+a: Comedy_FemaleDocumentary_k_20_wav.mp3 TEDTalk_FemaleDocumentary_k_20_wav.mp3 Documentary_FemaleDocumentary_k_20_wav.mp3 News_FemaleDocumentary_k_20_wav.mp3
+- Extract 1
+- Extract 2
+- Extract 3
+- Extract 4
+
+l: ExtraThank
+t: info
+q: Extended Thanks<br>
+I wish to thank you for filling in all of the sections. I appreciate the time you dedicated towards helping my research. Now onto the regular end screen.
+
+
+
