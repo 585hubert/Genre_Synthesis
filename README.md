@@ -32,4 +32,13 @@ With these steps, you should be able to synthesise Speech Genres. The research p
 synthesised with a Stand-Up Comedy register) or the synthesis of function neutral text with various registers.
 
 ## Additional Material
+*Embeddings - Subset* - A folder which contains a small subset of the training data used for the kNN-VC to generate the genre embeddings.
+
+*PsyToolKit Script* - A folder which contains the survey file used for the evaluation of synthesised speech samples. The Samples folder contains the necessary samples required to run the survey.
+
+*Result_Analysis* - A folder which contains the notebook files which analysed both the RCNN evaluation, and the human evaluation of synthesised speech samples. The accompanying data.csv file contains the responses of all
+of the participants, each indexed with a unique but nontraceable key.
+
+*Web Scraping Tools* - A folder which contains the notebook files which were used to obtain the text necessary to train the RCNN, one for each genre. Additionally, the Text Splitter notebook is used to split the text for each genre into
+segments of texts of desired character length.
 
