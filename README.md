@@ -10,7 +10,7 @@ the level of thematic content, but may differ in terms of individual aesthetic p
 taking into account both the function of the given speech, alongside any stylistic choices made by the
 speaker.
 
-The architecture used for Genre Synthesis is modular. The benfit of this approach is that you can replace any of the components with a different architecture (which, the more in the future it is, the better it probably is.
+The architecture used for Genre Synthesis is modular. The benfit of this approach is that you can replace any of the components with a different architecture (which, the more in the future it is, the better it probably is).
 In this particular research paper, 4 genres were synthesised: TEDTalk, Documentary, News Broadcast, and Stand-Up Comedy. Each genre was subsequently split according to the gender of the speaker. Naturally, more are possible.
 
 ## Walkthrough
