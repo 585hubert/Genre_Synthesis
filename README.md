@@ -42,3 +42,5 @@ of the participants, each indexed with a unique but nontraceable key.
 *Web Scraping Tools* - A folder which contains the notebook files which were used to obtain the text necessary to train the RCNN, one for each genre. Additionally, the Text Splitter notebook is used to split the text for each genre into
 segments of texts of desired character length.
 
+*Additional Figures* - Figures of results which couldn't make it into the main document. Most of them are genre specific breakdowns of each question.
+
