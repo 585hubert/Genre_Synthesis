@@ -20,7 +20,7 @@ The process of synthesising Speech Genres is as follows:
 is a notebook file which contains the git clone command for the specific implementation of FastSpeech2 used. There is both a README file inside of this folder, and a README file from the cloned folder. Follow the
 instructions of those README files (download the pretrained model). To synthesise desired text, the input was changed within the eval.py file. The folder contains both text with the Speech Function of each genre (Reference Audio
 Text) and function neutral text (Harvard Sentences), both of which were used in the research paper.
-2) Secondly, a text classifier is required to identify the Speech Function of a given text. This task is performed by a Recurrent Conhvolutional Neural Network (RCNN) in this research paper. Inside of the RCNN folder, there is a notebook file which
+2) Secondly, a text classifier is required to identify the Speech Function of a given text. This task is performed by a Recurrent Convolutional Neural Network (RCNN) in this research paper. Inside of the RCNN folder, there is a notebook file which
 contains the git clone command to the specific RCNN implementation used. Follow the instructions of the README file inside of that folder. The README file contains a link to a zipped folder which contains the
 necessary csv files to train the RCNN models used in the research paper, alongside the classes.txt necessary for classification. You unzip this folder and use the contents to replace the files from the default
 git clone. The cloned repository has the tools to both train and evaluate the RCNN models.
