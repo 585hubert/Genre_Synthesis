@@ -59,17 +59,17 @@ Genre_Synthesis/<br>
 ## Walkthrough
 The process of synthesising Speech Genres is as follows:
 
-1) First, a piece of text needs to be converted into neutral synthesised speech (speech which is devoid of any Speech Register) using a speech synthesiser. In this research paper, FastSpeech2 is used for this task. Inside the FastSpeech2 folder
+1) First, a piece of text needs to be converted into neutral synthesised speech (speech which is devoid of any Speech Register) using a speech synthesiser. In this research paper, [FastSpeech2](https://arxiv.org/pdf/2006.04558) is used for this task. Inside the FastSpeech2 folder
 is a notebook file which contains the ```!git clone``` command for the [specific implementation of FastSpeech2](https://github.com/xcmyz/FastSpeech) used. There is both a README file inside of this folder, and a README file from the cloned folder. Follow the
 instructions of those README files (download the pretrained model). To synthesise desired text, the input was changed within the ```eval.py``` file, specifically within the ```get_data()``` function. The folder contains both text with the Speech Function of each genre (Reference Audio
 Text) and function neutral text (Harvard Sentences), both of which were used in the research paper.
-2) Secondly, a text classifier is required to identify the Speech Function of a given text. This task is performed by a Recurrent Convolutional Neural Network (RCNN) in this research paper. Inside of the RCNN folder, there is a notebook file which
-contains the git clone command to the specific RCNN implementation used. Follow the instructions of the README file inside of that folder. The README file contains a link to a zipped folder which contains the
+2) Secondly, a text classifier is required to identify the Speech Function of a given text. This task is performed by a [Recurrent Convolutional Neural Network (RCNN)](https://ojs.aaai.org/index.php/AAAI/article/view/9513) in this research paper. Inside of the RCNN folder, there is a notebook file which
+contains the ```!git clone``` command to the [specific RCNN implementation used](https://github.com/jungwhank/rcnn-text-classification-pytorch). Follow the instructions of the README file inside of that folder. The README file contains a link to a [zipped folder](https://drive.google.com/file/d/1AvD77ReysHv7Gfu6hWm9RHOm1m6me3f-/view?usp=sharing) which contains the
 necessary csv files to train the RCNN models used in the research paper, alongside the classes.txt necessary for classification. You unzip this folder and use the contents to replace the files from the default
 git clone. The cloned repository has the tools to both train and evaluate the RCNN models.
-3) Finally, the k-Nearest Neighbours Voice Conversion (kNN-VC) architecture is used to apply the Speech Register to the output of the speech synthesiser from step 1. Inside of the kNN-VC folder is a notebook file which
-contains the torch.hub.load() call of the kNN-VC architecture, alongside the full implementation of creating the Speech Register embeddings, and applying them to speech samples. The folder containing all of the audio files
-is too large to be included. Thus, the README file contains a link to a zipped folder which contains the PyTorch tensors for each of the genres, for each of the genders. 
+3) Finally, the [k-Nearest Neighbours Voice Conversion (kNN-VC) architecture](https://arxiv.org/abs/2305.18975) is used to apply the Speech Register to the output of the speech synthesiser from step 1. Inside of the kNN-VC folder is a notebook file which
+contains the ```torch.hub.load()``` call of the [specific implementation of the kNN-VC architecture](https://github.com/bshall/knn-vc) used in the paper, alongside the full implementation of creating the Speech Register embeddings, and applying them to speech samples. The folder containing all of the audio files
+is too large to be included. Thus, the README file contains a link to a [zipped folder](https://drive.google.com/file/d/1_tdDoi-T9gEAs6le782EVcKgAvoRoWxV/view?usp=sharing) which contains the PyTorch tensors for each of the genres, for each of the genders. 
 
 With these steps, you should be able to synthesise Speech Genres. The research paper also looked at alternative cases where the Speech Function did not match the Speech Register (e.g. a News Broadcast text being
 synthesised with a Stand-Up Comedy register) or the synthesis of function neutral text with various registers.
