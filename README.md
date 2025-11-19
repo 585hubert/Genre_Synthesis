@@ -13,12 +13,55 @@ speaker.
 The architecture used for Genre Synthesis is modular. The benfit of this approach is that you can replace any of the components with a different architecture (which, the more in the future it is, the better it probably is).
 In this particular research paper, 4 genres were synthesised: TEDTalk, Documentary, News Broadcast, and Stand-Up Comedy. Each genre was subsequently split according to the gender of the speaker. Naturally, more are possible.
 
+## Repository Structure
+
+Genre_Synthesis/<br>
+├── Additional Figures/<br>
+│   ├── Function_Per_Register/<br>
+│   ├── Genre_Per_Gender/<br>
+│   ├── Genre_Per_k/<br>
+│   ├── Genre_Per_Question/<br>
+│   └── Genre+Gender_Per_Question/<br>
+├── Embeddings - Subset/<br>
+│   ├── Comedy - Female/<br>
+│   ├── Comedy - Male/<br>
+│   ├── Documentary - Female/<br>
+│   └── Documentary - Male/<br>
+├── FastSpeech2/<br>
+│   ├── FastSpeech2.ipynb<br>
+│   ├── Harvard Sentences.txt<br>
+│   ├── README.md<br>
+│   └── Reference Audio Text.csv<br>
+├── kNN-VC/<br>
+│   ├── KNN Prosody.ipynb<br>
+│   └── README.md<br>
+├── PsyToolKit Script/<br>
+│   ├── Samples/<br>
+│   └── survey.txt<br>
+├── RCNN/<br>
+│   ├── RCNN.ipynb<br>
+│   └── README.md<br>
+├── README.md<br>
+├── Result_Analysis/<br>
+│   ├── data.csv<br>
+│   ├── PsyToolKitResults.ipynb<br>
+│   ├── RCNN Analysis.ipynb<br>
+│   └── README.md<br>
+└── Web Scraping Tools/<br>
+    ├── Character Length Histograms/<br>
+    ├── Getting Comedy Transcripts.ipynb<br>
+    ├── Scraping all of TedEx.ipynb<br>
+    ├── Scraping Youtube Captions.ipynb<br>
+    ├── ScrapingCNN.ipynb<br>
+    └── TextSplitter.ipynb<br>
+
+
 ## Walkthrough
 The process of synthesising Speech Genres is as follows:
 
 1) First, a piece of text needs to be converted into neutral synthesised speech (speech which is devoid of any Speech Register) using a speech synthesiser. In this research paper, FastSpeech2 is used for this task. Inside the FastSpeech2 folder
-is a notebook file which contains the git clone command for the specific implementation of FastSpeech2 used. There is both a README file inside of this folder, and a README file from the cloned folder. Follow the
-instructions of those README files (download the pretrained model). To synthesise desired text, the input was changed within the eval.py file. The folder contains both text with the Speech Function of each genre (Reference Audio
+is a notebook file which contains the ```!git clone``` command for the [specific implementation of FastSpeech2](https://github.com/xcmyz/FastSpeech) used. There is both a README file inside of this folder, and a README file from the cloned folder. Follow the
+instructions of those README files (download the pretrained model). To synthesise desired text, the input was changed within the ```eval.py``` file, specifically within the ```get_data()``` function. The folder contains both text with the Speech Function of each genre (Reference Audio
 Text) and function neutral text (Harvard Sentences), both of which were used in the research paper.
 2) Secondly, a text classifier is required to identify the Speech Function of a given text. This task is performed by a Recurrent Convolutional Neural Network (RCNN) in this research paper. Inside of the RCNN folder, there is a notebook file which
 contains the git clone command to the specific RCNN implementation used. Follow the instructions of the README file inside of that folder. The README file contains a link to a zipped folder which contains the
